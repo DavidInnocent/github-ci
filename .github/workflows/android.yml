@@ -1,0 +1,19 @@
+name: Run Unit Tests
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    name: Unit Testing the project
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup the JDK
+        uses: action/setup_java@v1
+        with:
+          java_version: 1.8
+      - name: Run Test
+        run: ./grablew test
+
